@@ -1,0 +1,31 @@
+server:
+  port: ${SERVER_PORT:8089}
+
+spring:
+  application:
+    name: stack-overflow
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_SERVER}:${POSTGRES_PORT}/${POSTGRES_DATABASE}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: ${POSTGRES_DDL_AUTO}
+    show-sql: ${POSTGRES_SHOW_SQL}
+  data:
+    elasticsearch:
+      cluster-name: spring.boot.stack-overflow-2
+      cluster-nodes: localhost:9093
+
+jwt:
+  secret:
+    key: abrakadabra
+  expiration:
+    hours: 10
+
+springdoc:
+  api-docs:
+    path: /docs/v3/api-docs
+  swagger-ui:
+    path: /docs/swagger-ui/index.html
+

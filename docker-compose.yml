@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  stack_overflow_postgres:
+    image: postgres:15
+    container_name: stack_overflow_postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=stack_overflow_postgres
+    ports:
+      - '5411:5432'
